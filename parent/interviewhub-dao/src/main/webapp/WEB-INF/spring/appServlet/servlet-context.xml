@@ -58,7 +58,6 @@
         <property name="annotatedClasses">
             <list>
                 <value>com.interviewshub.utilities.dao.data.Company</value>
-                <value>com.interviewshub.utilities.dao.data.College</value>
             </list>
         </property>
         <property name="hibernateProperties">

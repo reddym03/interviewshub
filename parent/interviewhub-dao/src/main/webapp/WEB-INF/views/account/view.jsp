@@ -3,32 +3,39 @@
 <%@ page session="false" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <html>
 <head>
 	<META http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<title><fmt:message key="welcome.title"/></title>
+	<title>@Controller Example</title>
 	<link rel="stylesheet" href="<c:url value="/resources/blueprint/screen.css" />" type="text/css" media="screen, projection">
 	<link rel="stylesheet" href="<c:url value="/resources/blueprint/print.css" />" type="text/css" media="print">
 	<!--[if lt IE 8]>
 		<link rel="stylesheet" href="<c:url value="/resources/blueprint/ie.css" />" type="text/css" media="screen, projection">
 	<![endif]-->
-</head>
+</head>	
 <body>
-<div class="container">  
+<div class="container">
 	<h1>
-		<fmt:message key="welcome.title"/>
+		View Account
 	</h1>
-	<p>
-		Locale = ${pageContext.response.locale}
-	</p>
+	<div class="span-12 last">	
+		<form:form modelAttribute="account" action="${account.id}" method="post">
+		  	<fieldset>		
+				<legend>Account Fields</legend>
+				
+				<p>
+					<form:label	for="companyName" path="companyName" cssErrorClass="error">Name</form:label><br/>
+					<form:input path="companyName" /> 		
+				</p>
+			</fieldset>
+		</form:form>
+	</div>
 	<hr>	
 	<ul>
 		<li> <a href="?locale=en_us">us</a> |  <a href="?locale=en_gb">gb</a> | <a href="?locale=es_es">es</a> | <a href="?locale=de_de">de</a> </li>
-	</ul>
-	<ul>
-		<li><a href="company">@Controller Example</a></li>
-		<li><a href="college">@College Controller Example</a></li>
-	</ul>
+	</ul>	
 </div>
 </body>
 </html>
